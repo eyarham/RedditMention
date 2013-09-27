@@ -37,8 +37,15 @@ namespace RedditMention
 
         public RAOATools(string modMailSub)
         {
+            try
+            {
+
             _reddit = new Reddit();
             Sub = _reddit.GetSubreddit(modMailSub);
+            }
+            catch (Exception)
+            {
+            }
         }
 
         public void SendMessage(string userName, string subject, string body)
